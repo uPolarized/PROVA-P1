@@ -1,34 +1,31 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('wallpaper.jpg'); /* Substitua pelo caminho do seu wallpaper */
-    background-size: cover; /* Faz o background cobrir toda a área */
-    background-attachment: fixed; /* Mantém o background fixo ao rolar */
-    background-position: center; /* Centraliza o background */
+    background-image: url('wallpaper.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     margin: 0;
     padding: 20px;
-    color: #333; /* Para garantir que o texto tenha boa visibilidade contra o fundo */
+    color: #333;
 }
 
 h1 {
     text-align: center;
-    color: white; /* Mudou a cor do texto para branco */
+    color: white;
     margin-bottom: 20px;
-    font-size: 3em; /* Aumenta o tamanho da fonte */
-    font-family: 'Arial Black', Gadget, sans-serif; /* Fonte em negrito */
-    padding: 10px 20px; /* Adiciona um padding */
-    background-color: rgba(0, 123, 255, 0.7); /* Fundo azul com transparência */
-    border-radius: 10px; /* Cantos arredondados */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra ao redor */
-    transition: transform 0.3s, color 0.3s; /* Transição suave */
+    font-size: 3em;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    padding: 10px 20px;
+    background-color: rgba(0, 123, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, color 0.3s;
 }
 
 h1:hover {
-    color: #ffc107; /* Muda a cor do texto ao passar o mouse */
-    transform: scale(1.05); /* Aumenta levemente o tamanho ao passar o mouse */
+    color: #ffc107;
+    transform: scale(1.05);
 }
-
-
-
 
 .tabs {
     display: flex;
