@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Lista de Animes</h1>
+
+    <div class="tabs">
+        <button id="allAnimesTab" class="tab-button active">Todos os Animes</button>
+        <button id="favoriteAnimesTab" class="tab-button">Favoritos</button>
+    </div>
+
+    <div id="animeDetails" class="anime-details">
+        <h2>Detalhes do Anime</h2>
+        <p id="animeDescription">Clique em uma imagem de um anime para ver mais detalhes.</p>
+    </div>
+
+    <div id="animeListContainer">
+        <input type="text" id="searchInput" placeholder="Buscar anime..." oninput="filterAnimes()">
+        <select id="genreSelect" onchange="filterAnimes()">
+            <option value="">Todos os Gêneros</option>
+            <option value="Action">Ação</option>
+            <option value="Adventure">Aventura</option>
+            <option value="Comedy">Comédia</option>
+            <option value="Drama">Drama</option>
+            <option value="Fantasy">Fantasia</option>
+            <option value="Horror">Horror</option>
+            <option value="Romance">Romance</option>
+            <option value="Sci-Fi">Ficção Científica</option>
+        </select>
+        
+        <div id="animeList" class="anime-list"></div>
+    </div>
+
+    <div id="favoriteListContainer" style="display: none;">
+        <div id="favorite-list" class="anime-list"></div>
+    </div>
+
+    <script src="javinha.js"></script>
+</body>
+</html>

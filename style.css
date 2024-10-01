@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('wallpaper.jpg'); /* Substitua pelo caminho do seu wallpaper */
+    background-size: cover; /* Faz o background cobrir toda a área */
+    background-attachment: fixed; /* Mantém o background fixo ao rolar */
+    background-position: center; /* Centraliza o background */
+    margin: 0;
+    padding: 20px;
+    color: #333; /* Para garantir que o texto tenha boa visibilidade contra o fundo */
+}
+
+h1 {
+    text-align: center;
+    color: white; /* Mudou a cor do texto para branco */
+    margin-bottom: 20px;
+    font-size: 3em; /* Aumenta o tamanho da fonte */
+    font-family: 'Arial Black', Gadget, sans-serif; /* Fonte em negrito */
+    padding: 10px 20px; /* Adiciona um padding */
+    background-color: rgba(0, 123, 255, 0.7); /* Fundo azul com transparência */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra ao redor */
+    transition: transform 0.3s, color 0.3s; /* Transição suave */
+}
+
+h1:hover {
+    color: #ffc107; /* Muda a cor do texto ao passar o mouse */
+    transform: scale(1.05); /* Aumenta levemente o tamanho ao passar o mouse */
+}
+
+
+
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.tab-button:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+input, select {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #0056b3;
+}
+
+.anime-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.anime-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.anime-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.favorite-button {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.favorite-button:hover {
+    background-color: #0056b3;
+}
+
+.anime-details {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.anime-details h2 {
+    margin: 0 0 10px;
+}
+
+.anime-details p {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .anime-item {
+        width: 90%;
+    }
+
+    input, select {
+        width: 90%;
+    }
+}
