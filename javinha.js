@@ -1,32 +1,32 @@
 let animes = [];
 let favoriteAnimes = JSON.parse(localStorage.getItem('favoriteAnimes')) || [];
-let currentPage = 1; // Variável para acompanhar a página atual
-const pageSize = 10; // Número de animes a serem exibidos por vez
+let currentPage = 1;
+const pageSize = 10;
 
 async function fetchAnimes(page = 1) {
     const response = await fetch(`https://api.jikan.moe/v4/anime?page=${page}&limit=${pageSize}`);
     const data = await response.json();
-    animes.push(...data.data); // Adiciona novos animes à lista existente
-    displayAnimes(animes); // Exibe todos os animes
+    animes.push(...data.data);
+    displayAnimes(animes);
 }
 
 function displayAnimes(animeArray) {
     const animeList = document.getElementById('animeList');
-    animeList.innerHTML = ''; // Limpa a lista antes de exibir
+    animeList.innerHTML = '';
 
     animeArray.forEach(anime => {
         const animeItem = document.createElement('div');
         animeItem.className = 'anime-item';
         animeItem.innerHTML = `
-            <h2>${anime.title}</h2>
-            <img src="${anime.images.jpg.large_image_url}" alt="${anime.title}">
+            <h2 class="anime-title">${anime.title}</h2>
+            <img class="anime-image" src="${anime.images.jpg.large_image_url}" alt="${anime.title}">
             <p>Score: ${anime.score}</p>
             <p>Episodes: ${anime.episodes || 'N/A'}</p>
             <button class="favorite-button" data-anime-id="${anime.mal_id}">Favoritar</button>
         `;
 
-        // Adiciona evento de clique para exibir detalhes do anime
-        animeItem.addEventListener('click', () => displayAnimeDetails(anime));
+        animeItem.querySelector('.anime-title').addEventListener('click', () => displayAnimeDetails(anime));
+        animeItem.querySelector('.anime-image').addEventListener('click', () => displayAnimeDetails(anime));
 
         animeList.appendChild(animeItem);
     });
@@ -46,7 +46,7 @@ function displayAnimeDetails(anime) {
 
 function displayFavoriteAnimes() {
     const favoriteList = document.getElementById('favorite-list');
-    favoriteList.innerHTML = ''; // Limpa a lista antes de exibir
+    favoriteList.innerHTML = '';
 
     if (favoriteAnimes.length > 0) {
         favoriteAnimes.forEach((anime) => {
@@ -59,7 +59,6 @@ function displayFavoriteAnimes() {
                 <p>Episodes: ${anime.episodes || 'N/A'}</p>
             `;
 
-            // Adiciona evento de clique para exibir detalhes do anime
             animeItem.addEventListener('click', () => displayAnimeDetails(anime));
 
             favoriteList.appendChild(animeItem);
@@ -75,10 +74,8 @@ document.addEventListener('click', (e) => {
         const anime = animes.find((anime) => anime.mal_id === parseInt(animeId));
         if (anime) {
             if (favoriteAnimes.some(favAnime => favAnime.mal_id === anime.mal_id)) {
-                // Remova o anime dos favoritos
                 favoriteAnimes = favoriteAnimes.filter((favoriteAnime) => favoriteAnime.mal_id !== anime.mal_id);
             } else {
-                // Adicione o anime aos favoritos
                 favoriteAnimes.push(anime);
             }
             localStorage.setItem('favoriteAnimes', JSON.stringify(favoriteAnimes));
@@ -123,7 +120,7 @@ function filterAnimes() {
         return titleMatch && genreMatch;
     });
 
-    displayAnimes(filteredAnimes); // Exibe os animes filtrados
+    displayAnimes(filteredAnimes);
 }
 
 function updateFavoriteButtons() {
@@ -138,7 +135,6 @@ function updateFavoriteButtons() {
     });
 }
 
-// Função para detectar o scroll e carregar mais animes
 function handleScroll() {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
         currentPage++;
@@ -148,5 +144,4 @@ function handleScroll() {
 
 window.addEventListener('scroll', handleScroll);
 
-// Carrega os animes inicialmente
 fetchAnimes();
